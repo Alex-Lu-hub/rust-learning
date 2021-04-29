@@ -15,27 +15,27 @@ fn main() {
                 if num >= 1 && num <= 3 {
                     num
                 } else {
-                    println!("\x1b[2J");
-                    println!("\x1b[H");
+                    print!("\x1b[2J");
+                    print!("\x1b[H");
                     println!("Please input RIGHT choice!");
                     continue
                 }
             },
             Err(_) => {
-                println!("\x1b[2J");
-                println!("\x1b[H");
+                print!("\x1b[2J");
+                print!("\x1b[H");
                 println!("Please input RIGHT choice!");
                 continue
             },
         };
 
         if choice == 1 {
-            println!("\x1b[2J");
-            println!("\x1b[H");
+            print!("\x1b[2J");
+            print!("\x1b[H");
             f_to_c();
         } else if choice == 2 {
-            println!("\x1b[2J");
-            println!("\x1b[H");
+            print!("\x1b[2J");
+            print!("\x1b[H");
             c_to_f();
         } else {
             break;
@@ -54,8 +54,8 @@ fn f_to_c() {
         let t: f64 = match t.trim().parse() {
             Ok(num) => num,
             Err(_) => {
-                println!("\x1b[2J");
-                println!("\x1b[H");
+                print!("\x1b[2J");
+                print!("\x1b[H");
                 println!("Please input RIGHT temperature!");
                 continue
             },
@@ -80,8 +80,8 @@ fn c_to_f() {
         let t: f64 = match t.trim().parse() {
             Ok(num) => num,
             Err(_) => {
-                println!("\x1b[2J");
-                println!("\x1b[H");
+                print!("\x1b[2J");
+                print!("\x1b[H");
                 println!("Please input RIGHT temperature!");
                 continue
             },
