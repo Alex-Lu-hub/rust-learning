@@ -50,10 +50,16 @@ fn fibonacci(n: u32) -> u128 {
     let mut b:u128 = 1;
     let mut c:u128 = 0;
     let mut count = 0;
-    while count < n - 1  {
-        c = a + b;
-        a = b;
-        b = c;
+    while count < n {
+        if count == 0 {
+            c = a;
+        } else if count == 1 {
+            c = b;
+        } else {
+            c = a + b;
+            a = b;
+            b = c;
+        }
         count = count + 1;
     }
     c
