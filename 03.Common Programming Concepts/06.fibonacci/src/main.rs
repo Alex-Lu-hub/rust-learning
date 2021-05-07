@@ -12,6 +12,8 @@ fn main() {
         if input.trim() == "Quit" {
             break;
         }
+
+        // the n must less than 180!
         let n: u32 = match input.trim().parse() {
             Ok(num) => {
                 if num > 0 && num < 181 {
@@ -32,35 +34,28 @@ fn main() {
         };
         
         let mut fibonacci_sequence: Vec<u128> = Vec::new();
-        for num in (1..n + 1) {
-            fibonacci_sequence.push(fibonacci(num));
+
+        let mut a:u128 = 0;
+        let mut b:u128 = 1;
+        let mut count = 0;
+        while count < n {
+            if count == 0 {
+                fibonacci_sequence.push(a);
+            } else if count == 1 {
+                fibonacci_sequence.push(b);
+            } else {
+                fibonacci_sequence.push(a + b);
+                let tmp = a + b;
+                a = b;
+                b = tmp;
+            }
+            count = count + 1;
         }
 
         let mut index = 1;
         for num in &fibonacci_sequence {
-            print!("{}: {}\n", index, num);
+            println!("{}: {}", index, num);
             index = index + 1;
         }
     } 
-}
-
-// the n must less than 180!
-fn fibonacci(n: u32) -> u128 {
-    let mut a:u128 = 0;
-    let mut b:u128 = 1;
-    let mut c:u128 = 0;
-    let mut count = 0;
-    while count < n {
-        if count == 0 {
-            c = a;
-        } else if count == 1 {
-            c = b;
-        } else {
-            c = a + b;
-            a = b;
-            b = c;
-        }
-        count = count + 1;
-    }
-    c
 }
