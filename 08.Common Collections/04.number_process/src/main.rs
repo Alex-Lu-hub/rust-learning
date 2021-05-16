@@ -29,7 +29,10 @@ fn main() {
                 Err(_) => {
                     print!("\x1b[2J");
                     print!("\x1b[H");
-                    println!("Please input RIGHT command!");
+                    println!("Please input RIGHT command and make sure the num is i32!");
+                    println!("Press ENTER to Continue!");
+                    std::io::stdin().read_line(&mut input)
+                        .expect("Failed to read line");
                     flag = -1;
                     break
                 },
