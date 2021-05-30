@@ -60,9 +60,9 @@ fn main() {
 
 fn GetAvgNum(v: &Vec<i32>) -> f64 {
     let mut count = 0;
-    let mut sum = 0;
+    let mut sum: i64 = 0;
     for i in v {
-        sum = sum + i; 
+        sum = sum + *i as i64; 
         count = count + 1;
     }
     let ret: f64 = sum as f64 / count as f64;
